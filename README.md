@@ -9,12 +9,13 @@
 
 <h2> Introduction </h2>
 <p>Dans le cadre des deux exercices demandés en cours, nous les avons réalisés en C</p>
+
   struct structure_manga
-{
+  {
     char Titre[50];
     int age;
     float prix;
-};
+  };
   
 <h2> Présentation des codes </h2>
   <h3>Ma première structure de données : Chiffrage César</h3>
