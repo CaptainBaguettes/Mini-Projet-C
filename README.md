@@ -7,7 +7,7 @@
   <li>3. Raphaël PAVARD</li>
 </ul>
 
-<h2> Introduction </h2><h2>Introduction</h2>
+<h2>Introduction</h2>
 <p>Dans le cadre des exercices demandés en cours, nous avons réalisé deux fichiers en C que nous allons vous décrire dans ce rapport.</p>
 <p>Ce rapport sera divisé selon ces deux fichiers :</p>
 
@@ -122,7 +122,83 @@
         printf("Nombre d'occurences : %d\n", retour);
         return retour;
     }
-<h3>Mes mangas préférés !</h3>
+
+<strong>Fonctions d'affichage</strong>
+
+    void affiche_lettre(ASCII_Letter L)
+    {
+        printf("%d %c\n", L.code, L.letter);
+    }
+
+    void affiche_tab(ASCII_Letter *tab, int len)
+    {
+        int i;
+        for (i = 0; i < len; i++)
+        {
+            affiche_lettre(*(tab + i));
+        }
+    }
+
+    void affiche_codage(codage1 *tab, int len)
+    {
+        int i;
+        for (i = 0; i < len; i++)
+        {
+            affiche_lettre((*(tab + i)).crypte);
+        }
+    }
+
+<strong>Fonctions diverses</strong>
+
+    char *creerChaine()
+    {
+        char *chaine = (char *)malloc(sizeof(char));
+        printf("\nTapez une chaine: ");
+        scanf("%s", chaine);
+
+        return chaine;
+    }
+
+    int compterString(char *chaine)
+    {
+        int m;
+        int charcount;
+
+        charcount = 0;
+        for (m = 0; chaine[m]; m++)
+        {
+            if (chaine[m] != ' ')
+            {
+                charcount++;
+            }
+        }
+
+        return charcount;
+    }
+
+<strong>Fonction principale</strong>
+
+    int main()
+    {
+        affiche_lettre(create_ascii());
+
+        char *chaine = creerChaine();
+        int compteur = compterString(chaine);
+        printf("%d", compteur);
+        ASCII_Letter *tab = init_tab(strlen(chaine));
+        remplir_tab(tab, chaine);
+
+        affiche_tab(tab, strlen(chaine));
+
+        codage1 *tab1 = init_codage(strlen(chaine));
+        tab1 = cryptage(tab1, chaine, 5);
+        affiche_codage(tab1, strlen(chaine));
+
+        occurences(tab1, create_ascii(), compteur);
+        return 0;
+    }
+
+<h3>Partie 2 : Mes mangas préférés !</h3>
 <h2> Retour d'expérience </h2>
 <h3> Difficultés rencontrées </h3>
 <h4>Le problème de buffer sur le scanf : </h4>
