@@ -131,7 +131,7 @@
          
     rewind(stdin);
     
-<h4><u>Lorsque nous avons essayer d'assigner une chaîne de caractère à une autre :</u></h4>
+<h4>Lorsque nous avons essayer d'assigner une chaîne de caractère à une autre :</h4>
 <p>Afin de réduire la pénibilité du débogage, nous avons voulu instancier à la main un tableau prédéfini, et nous devions assigner à notre class Manga son titre.       Nous avons donc fait :</p>
 
     Manga->titre = "titre";
@@ -141,7 +141,7 @@
     strcpy(Manga->Titre, "KonoSuba");
     
 <h4>Le parcours de tableau :</h4>
-<p>Cette difficulté est survenue lorsque nous avons eu l'idée farfelu de parcourir un tableau avec une taille inconnue. 
+<p>Cette difficulté est survenue lorsque nous avons eu l'idée farfelu de parcourir un tableau avec une taille inconnue. On avait  
     
 
 <h2> Conclusion  </h2>
