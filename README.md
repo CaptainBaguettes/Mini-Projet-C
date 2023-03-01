@@ -1,3 +1,8 @@
-# CoursC
+<h1> Rapport du mini projet C</h1>
+<strong>Auteurs :</strong>
 
-<h1> Test </h1>
+<ul>
+  <li>Teddy VICTORIEN</li>
+  <li>Wilhem SOREK</li>
+  <li>Raphaël PAVARD</li>
+</ul>
