@@ -1,0 +1,12 @@
+difficultés :
+  tableau : gérer leurs taille, on se retoruvé à lire des données non comprise dans le tableau.
+          solution : garder en mémoire la taille de l'array que l'on incrémente lorsqu'un élément est ajouté.
+Ce que l'on a appris :
+  -Une certaine rigueur concernant la gestion dess variables et leurs cycle de vie.
+  -Comment fonctionne de façon caché les languages plus récent.
+  -L'utilisation des pointeurs.
+  -Nouvelle façon de réfléchir
+ 
+Conclusion:
+  Exercice extrémement intéressant en formateur pour mieux apprehénder ce langage.
+  
