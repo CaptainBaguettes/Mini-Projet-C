@@ -472,23 +472,23 @@
 <h2> Retour d'expérience </h2>
 <h3> Difficultés rencontrées </h3>
 <h4>Le problème de buffer sur le scanf : </h4>
-<p>Ce problème est survenue lorsque nous avons initialiser nos premières variables, le buffer ne se vidait pas correctement et renvoyé un type de donnée différent lors d'un second appel à la fonction scanf.</p>
+<p>Ce problème est survenu lorsque nous avons initialisé nos premières variables, le buffer ne se vidait pas correctement et renvoyé un type de donnée différent lors d'un second appel à la fonction scanf.</p>
 <p>Afin de résoudre cet imprévu nous avons utilisé :</p>
          
     rewind(stdin);
     
-<h4>Lorsque nous avons essayer d'assigner une chaîne de caractère à une autre :</h4>
-<p>Afin de réduire la pénibilité du débogage, nous avons voulu instancier à la main un tableau prédéfini, et nous devions assigner à notre class Manga son titre.       Nous avons donc fait :</p>
+<h4>Lorsque nous avions essayé d'assigner une chaîne de caractère à une autre :</h4>
+<p>Afin de réduire la pénibilité du débogage, nous avions voulu instancier à la main un tableau prédéfini, et nous devions assigner à notre classe Manga son titre. Nous avons donc fait :</p>
 
     Manga->titre = "titre";
-<p>Nous avons remarqué que l'on ne pouvait pas assigner à un array. Nous avons donc pensez à for un boucle for et venir remplir le tableau char par char. Cependant il existe un librairie qui nous permet de faire cale de façon plus agréable à l'oeil.</p>
+<p>Nous avons remarqué que l'on ne pouvait pas assigner à un array. Nous avons donc pensez à for une boucle for et venir remplir le tableau char par char. Cependant, il existe une librairie qui nous permet de faire cela de façon plus agréable à l'oeil.</p>
 
     #include <string.h>
     strcpy(Manga->Titre, "KonoSuba");
     
 <h4>Le parcours de tableau :</h4>
-<p>Cette difficulté est survenue lorsque nous avons eu l'idée farfelue de parcourir un tableau avec une taille inconnue. On avait pensé à une solution qui pouvait fonctionner. Il s'agissait de se dire qu'un array est une suite d'allocations d'un élément de même type, et donc on prenait l'adresse du premier élément et on incrémenté en vérifiant s'il s'agissait bien du même type. Cependant, cette solution peut s'avérer fausse si les éléments stockés après la dernière valeur de mon array sont du même type.</p>
-<p>Nous avons donc rechercher un moyen de pouvoir parcourir un array et la solution pour laquelle nous avons opté, est de créer une variable et de l'incrémenter à chaque ajout d'élément.</p>
+<p>Cette difficulté est survenue lorsque nous avions eu l'idée farfelue de parcourir un tableau avec une taille inconnue. Nous avions pensé à une solution qui pouvait fonctionner. Il s'agissait de se dire qu'un array est une suite d'allocations d'un élément de même type, donc en prenant l'adresse du premier élément puis en l'incrémentant, nous pouvions vérifier s'il s'agissait bien du même type. Cependant, cette solution peut s'avérer fausse si les éléments stockés après la dernière valeur de mon array sont du même type.</p>
+<p>Nous avons donc dû rechercher un moyen de pouvoir parcourir un array. La solution pour laquelle nous avons opté, est de créer une variable et de l'incrémenter à chaque ajout d'élément.</p>
 
 <h3> Ce que nous avons appris :</h3>
 <h4>La rigueur:</h4>
@@ -502,5 +502,5 @@
 <p>Cependant comme expliqué dans le point juste au-dessus, beaucoup de langages plus récent fonctionne de la même façon, mais cache cette partie. Cet exercice a été très formateur dans la compréhension et dans l'application des pointeurs.</p>
    
 <h2> Conclusion </h2>
-<p>Afin de résumer notre ressenti sur cet exercice, on peut dire que cet exercice s'est avéré difficile à prendre en main, car les notions sont assez récentes pour nous trois. Les mettre en pratiques à trois avec aucun "experts" s'est avéré un peu compliqué et démotivants quelques fois. Mais cette difficulté d'appréhension a aussi permis de développer un aspect critique dans notre travail du quotidien. C'est plutôt avec fierté que nous avons réussi à aller au bout de ces exercices.</p>
+<p>Afin de résumer notre ressenti sur cet exercice, nous pouvons dire que cet exercice s'est avéré difficile à prendre en main, car les notions sont assez récentes pour nous trois. Les mettre en pratiques à trois avec aucun "experts" s'est avéré un peu compliqué et démotivants quelques fois. Mais cette difficulté d'appréhension a aussi permis de développer un aspect critique dans notre travail du quotidien. C'est plutôt avec fierté que nous avons réussi à aller au bout de ces exercices.</p>
 
