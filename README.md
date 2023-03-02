@@ -199,6 +199,276 @@
     }
 
 <h3>Partie 2 : Mes mangas préférés !</h3>
+<strong>Exercice 1 :</strong>
+
+>Une fonction qui permet de créer une structure avec les données saisies par l’utilisateur. Cette fonction retourne l’adresse de la structure créée.
+    
+    MANGA *create_manga()
+    {
+        MANGA *manga = (MANGA *)malloc(sizeof(MANGA));
+
+        printf("Titre du manga :");
+        rewind(stdin);
+        gets(manga->Titre);
+        printf("Age : ");
+        rewind(stdin);
+        scanf("%d", &manga->age);
+        printf("Prix : ");
+        rewind(stdin);
+        scanf("%f", &manga->prix);
+        return manga;
+    }
+
+<strong>Exercice 2 :</strong>
+
+>Une fonction qui permet de créer une structure avec les données saisies par l’utilisateur. Cette fonction retourne l’adresse de la structure créée.
+
+    void info_manga(MANGA m)
+    {
+        float total = 0;
+        printf("Titre : %s \n", m.Titre);
+        printf("Age :  %d \n", m.age);
+        printf("Prix : %f \n", m.prix);
+    }
+
+<strong>Exercice 3a :</strong>
+
+>Une fonction qui permet à un utilisateur d’ajouter un nombre fini (n) de ses MANGA préférés. Le tableau contient des structures MANGA.
+
+    MANGA *add_n_manga(int n_mangas)
+    {
+        MANGA *fav_mangas = (MANGA *)malloc(sizeof(MANGA) * n_mangas);
+        for (int i = 0; i < n_mangas; i++)
+        {
+            MANGA *m = create_manga();
+            char c = getchar();
+            *(fav_mangas + i) = *m;
+        }
+        return fav_mangas;
+    }
+
+<strong>Exercice 3b :</strong>
+
+>Une fonction qui permet à un utilisateur d’ajouter un nombre fini (n) de ses MANGA préférés. Le tableau contient les adresses des structures MANGA.
+
+    MANGA **add_n_manga_adresse(int n_mangas)
+    {
+        MANGA **fav_mangas = (MANGA **)malloc(sizeof(MANGA *) * n_mangas);
+        for (int i = 0; i < n_mangas; i++)
+        {
+            MANGA *m = create_manga();
+            *(fav_mangas + i) = m;
+        }
+        return fav_mangas;
+    }
+
+<strong>Exercice 4 :</strong>
+
+>Une fonction « menu ».
+
+    void menu()
+    {
+        // L'utilisateur renseigne son tableau de manga favoris
+        printf("Combien de mangas voulez vous ajouter ?\n");
+        // Nombre de manga dans le tableau
+        int nb;
+        rewind(stdin);
+        scanf("%d", &nb);
+        // l'utilisateur créer n mangas
+        MANGA *mangaFav = add_n_manga(nb);
+        // Panier utilisé pour la partie 4.e
+        MANGA *panier = (MANGA *)malloc(sizeof(MANGA));
+        // taille du tableau
+        int taille_panier = 0;
+        // Variable de condition pour permettre à l'utilisateur de quitter l'utilisateur
+        bool exit = true;
+
+        while (exit)
+        {
+            printf("1 pour consulter tous les mangas.\n");
+            printf("2 pour filtrer les mangas a partir d'un age.\n");
+            printf("3 pour compter le nombre de manga qui commence par une lettre.\n");
+            printf("4 pour chercher le prix d'un manga\n");
+            printf("5 pour calculer votre panier\n");
+            printf("6 pour quitter l\'application \n");
+            int choix = 0;
+            int age; // pour l'option 2;
+            char lettre;
+            char titre[50]; // pour l'option 4
+            bool exit2 = true;
+            rewind(stdin);
+            scanf("%d", &choix);
+
+            switch (choix)
+            {
+            case 1: // 4.a
+                consulter_favoris(mangaFav, nb);
+                break;
+            case 2: // 4.b
+                printf("Age demandÃ© pour le tri : \n");
+                rewind(stdin);
+                scanf("%d", &age);
+                sorted_by_age(mangaFav, age, nb);
+                break;
+            case 3: // 4.c
+                printf("Quelle lettre voulez vous chercher ?");
+                rewind(stdin);
+                scanf("%c", &lettre);
+                int nb_manga = nb_mangas_lettre(mangaFav, nb, lettre);
+                printf("Il y a %d manga(s) qui commence(nt) par la lettre %c\n", nb_manga, lettre);
+                break;
+            case 4: // 4.d
+                printf("Indiquez le titre : \n");
+                rewind(stdin);
+                scanf("%s", &titre);
+                float prix = prix_Manga(mangaFav, titre, nb);
+                printf("Le prix de %s est de %.2f euros \n", titre, prix);
+                break;
+            case 5: // 4.e
+                while (exit2)
+                {
+                    printf("1 pour consulter tous les mangas.\n");
+                    printf("2 pour ajouter un manga Ã  votre panier\n");
+                    printf("3 pour consulter votre panier\n");
+                    printf("4 pour confirmer votre panier\n");
+                    float total = 0;
+                    int choix2 = 0;
+                    rewind(stdin);
+                    scanf("%d", &choix2);
+                    char titre_add[50];
+                    switch (choix2)
+                    {
+                    case 1:
+                        consulter_favoris(mangaFav, nb);
+                        break;
+                    case 2:
+                        printf("Titre du manga :\n");
+                        rewind(stdin);
+                        scanf("%s", &titre_add);
+                        for (int i = 0; i < nb; i++)
+                        {
+
+                            MANGA m = *(mangaFav + i);
+
+                            if (strcmp(titre_add, m.Titre) == 0)
+                            {
+                                taille_panier++;
+                                add_manga_panier(panier, m, taille_panier);
+                            }
+                        }
+                        break;
+                    case 3:
+                        for (int i = 0; i < taille_panier; ++i)
+                        {
+                            // Decaler l'index de 1
+                            MANGA manga = *(panier + i + 1);
+                            info_manga(manga);
+                        }
+                        break;
+                    case 4:
+                        // Parcourt la liste de manga rÃ©cupere le prix et l'additionne dans une variable total
+                        for (int i = 0; i < taille_panier; ++i)
+                        {
+                            MANGA manga = *(panier + i + 1);
+                            total = total + manga.prix;
+                        }
+                        // Affiche la variable total
+                        printf("Le prix total de votre panier est de : %.2f euros\n", total);
+                        exit2 = false;
+                    }
+                }
+                break;
+            case 6:
+                exit = false;
+                break;
+            }
+        }
+    }
+
+<strong>Exercice 4a :</strong>
+
+>Une fonction « menu », donnant la possibilité à un utilisateur de : Afficher les informations de tous les MANGA stockés dans le tableau.
+
+    void consulter_favoris(MANGA *mangas, int n)
+    {
+        for (int i = 0; i < n; i++)
+        {
+            info_manga(*(mangas + i));
+        }
+    }
+
+<strong>Exercice 4b :</strong>
+
+>Une fonction « menu », donnant la possibilité à un utilisateur de : Afficher les informations de tous les MANGA qui sont accessibles à partir d’un certain âge donné en paramètre.
+
+    void sorted_by_age(MANGA *mangas, int age, int n)
+    {
+        MANGA *sorted_list = (MANGA *)malloc(sizeof(MANGA) * sizeof(mangas));
+        int count = 0;
+        for (int i = 0; i < n; i++)
+        {
+            MANGA m = *(mangas + i);
+            if (m.age >= age)
+            {
+                *(sorted_list + count) = m;
+                count++;
+            }
+        }
+        for (int i2 = 0; i2 < count; i2++)
+        {
+            info_manga(*(sorted_list + i2));
+        }
+    }
+
+<strong>Exercice 4c :</strong>
+
+>Une fonction « menu », donnant la possibilité à un utilisateur de : Compter le nombre de MANGA ayant un titre qui commence par une lettre donnée en paramètre.
+
+
+    int nb_mangas_lettre(MANGA *mangas, int n, char lettre)
+    {
+        int compteur = 0;
+        for (int i = 0; i < n; i++)
+        {
+            MANGA m = *(mangas + i);
+            if (m.Titre[0] == lettre)
+            {
+                compteur++;
+            }
+        }
+        return compteur;
+    }
+
+<strong>Exercice 4d :</strong>
+
+>Une fonction « menu », donnant la possibilité à un utilisateur de : Chercher un MANGA en donnant en paramètres le tableau de structure et le titre du MANGA. La fonction doit renvoyer le prix du MANGA donné.
+
+    float prix_Manga(MANGA *mangas, char *titre, int n)
+    {
+        float prix;
+        for (int i = 0; i < n; i++)
+        {
+            MANGA m = *(mangas + i);
+            if (strcmp(m.Titre, titre) == 0)
+            {
+                prix = m.prix;
+            }
+        }
+        return prix;
+    }
+
+<strong>Exercice 4e :</strong>
+
+>Une fonction « menu », donnant la possibilité à un utilisateur de : Avoir le prix total (somme), de certains MANGA choisis par un utilisateur.
+
+
+    void add_manga_panier(MANGA *panier, MANGA manga, int nb)
+    {
+        realloc(panier, nb * (sizeof(MANGA)));
+        *(panier + nb) = manga;
+    }
+
+
 <h2> Retour d'expérience </h2>
 <h3> Difficultés rencontrées </h3>
 <h4>Le problème de buffer sur le scanf : </h4>
