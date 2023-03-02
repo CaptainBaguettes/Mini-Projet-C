@@ -487,21 +487,20 @@
     strcpy(Manga->Titre, "KonoSuba");
     
 <h4>Le parcours de tableau :</h4>
-<p>Cette difficulté est survenue lorsque nous avons eu l'idée farfelu de parcourir un tableau avec une taille inconnue. On avait pensé à une solution qui pouvait fonctionner. Il s'agissait de se dire qu'un array est une suite d'allocation d'un élément de même type, et donc on prenait l'adresse du premier élément et on incrémenté en vérifiant si il s'agissait bien du même type. Cependant cette solution peut s'avérer fausse si les éléments stockés après la dernière valeur de mon array sont du même type. </b>
-Nous avons donc rechercher un moyen de pouvoir parcourir un array et la solution pour laquelle nous avons opté, est de créer une variable et de l'incrémenter à chaque ajout d'élément.
+<p>Cette difficulté est survenue lorsque nous avons eu l'idée farfelue de parcourir un tableau avec une taille inconnue. On avait pensé à une solution qui pouvait fonctionner. Il s'agissait de se dire qu'un array est une suite d'allocations d'un élément de même type, et donc on prenait l'adresse du premier élément et on incrémenté en vérifiant s'il s'agissait bien du même type. Cependant, cette solution peut s'avérer fausse si les éléments stockés après la dernière valeur de mon array sont du même type.</p>
+<p>Nous avons donc rechercher un moyen de pouvoir parcourir un array et la solution pour laquelle nous avons opté, est de créer une variable et de l'incrémenter à chaque ajout d'élément.</p>
 
-<h3> Ce que l'on a apprit :</h3>
-<h4>La rigoureusité :</h4>
-<p>Si il y a un point sur lequel on est tous d'accord c'est sur la difficultés d'appréhension du langage C. Cependant cela nous a permis de développer une rigueur et un regard interogateur quand à la gestion des variables et de leurs cycle de vie et avoir une vision critique sur nos prochains codes malgré la présence du garbage collector, surtout dans une période ou le numérique responsable est omniprésent dans les processus de développement de beaucoup d'entreprise, ou la gestion de la mémoire occupe une place très importante.</p>
+<h3> Ce que nous avons appris :</h3>
+<h4>La rigueur:</h4>
+<p>S'il y a un point sur lequel nous sommes tous d'accord, c'est sur la difficulté d'appréhension du langage C. Cependant cela nous a permis de développer une rigueur et un regard interrogateur quant à la gestion des variables et de leurs cycles de vie et avoir une vision critique sur nos prochains codes malgré la présence du garbage collector, surtout dans une période ou le numérique responsable est omniprésent dans les processus de développement de beaucoup d'entreprises, ou la gestion de la mémoire occupe une place très importante.</p>
 
-<h4>La face caché des langages récents :</h4>
-<p>Pour être tout à fait franc, nous avons pas mal râlé sur ce TP en ne comprennant pas pourquoi les langages plus récents n'était pas aussi dûr à appréhender.En faisans des recherches nous nous sommes rendu compte que les langages tel que JAVA ou encore PYTHON était tiré du C. En en regardant de plus prêt, même si JAVA nous permet de connaître la taille d'un tableau avec le .length, l'action qu'il fait derrière reste la même que ce que nous avons du faire en C. Pour résumer cette partie, 
-cela nous a permi de mieux comprendre ce qu'il se passe derrière les langages récent que nous utilisons.</p>
+<h4>La face cachée des langages récents :</h4>
+<p>Pour être tout à fait franc, nous avons pas mal râlé sur ce TP en ne comprenant pas pourquoi les langages plus récents n'étaient pas aussi dur à appréhender. En faisans des recherches nous nous sommes rendu compte que les langages tels que JAVA ou encore PYTHON était tiré du C. En en regardant de plus prêt, même si JAVA nous permet de connaître la taille d'un tableau avec le .length, l'action qu'il fait derrière reste la même que ce que nous avons du faire en C. Pour résumer cette partie, cela nous a permi de mieux comprendre ce qu'il se passe derrière les langages récents que nous utilisons.</p>
   
 <h4>Nos amis les pointeurs :</h4>
-<pLa grande majorité des difficulté d'appréhension que nous avons eu se situe au niveau des notions de pointeurs, d'adrese mémoire etc...</p>
-<p>Cependant comme expliqué dans le point juste au dessus, beaucoup de langages plus récent fonctionne de la même façon, mais cache cette partie. Cet exercice a été très formateurs dans la compréhension et l'application de cet immense notion qu'est les pointeurs.</p>
+<p>La grande majorité des difficultés d'appréhension que nous avons eues se situe au niveau des notions de pointeurs, d'adresse mémoire etc...</p>
+<p>Cependant comme expliqué dans le point juste au-dessus, beaucoup de langages plus récent fonctionne de la même façon, mais cache cette partie. Cet exercice a été très formateur dans la compréhension et dans l'application des pointeurs.</p>
    
 <h2> Conclusion </h2>
-<p>Afin de résumé notre resenti sur cet exercice, on peut dire que cet exercice s'est avéré difficile à prendre en main car les notions sont assez récentes pour nous trois. Les mettres en pratiques à trois avec aucun "experts" s'est avéré un peu compliqué et démotivants quelques fois. Mais cette difficultés d'appréhension a aussi permis de développer un aspect critique dans notre travail du quotidien. C'est plutôt avec fiertè que nous avonc réussi à aller au bout de ces exercices.</p>
+<p>Afin de résumer notre ressenti sur cet exercice, on peut dire que cet exercice s'est avéré difficile à prendre en main, car les notions sont assez récentes pour nous trois. Les mettre en pratiques à trois avec aucun "experts" s'est avéré un peu compliqué et démotivants quelques fois. Mais cette difficulté d'appréhension a aussi permis de développer un aspect critique dans notre travail du quotidien. C'est plutôt avec fierté que nous avons réussi à aller au bout de ces exercices.</p>
 
